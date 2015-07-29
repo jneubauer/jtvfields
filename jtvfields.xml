@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="content">
+	<name>plg_content_jtvfields</name>
+	<author>Jon Neubauer</author>
+	<creationDate>July 2015</creationDate>
+	<copyright>Copyright (C) 2005 - 2015 Jon Neubauer. All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later</license>
+	<authorEmail>jon@neubauer.me</authorEmail>
+	<authorUrl>www.jonneubauer.com</authorUrl>
+	<version>0.0.1</version>
+	<description>Plugin for adding custom fields to Joomla TV</description>
+
+	<files>
+		<folder>forms</folder>
+		<folder>language</folder>
+		<filename plugin="jtvfields">jtvfields.php</filename>
+		<filename>index.html</filename>
+	</files>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="cincluded_categories" type="category" extension="com_content" default="" label="Included Categories"
+					description="Multiple select the categories that this plugin will work with" multiple="true" size="5" />
+			</fieldset>
+		</fields>
+	</config>
+	
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.plg_content_jtvfields.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_content_jtvfields.sys.ini</language>
+	</languages>
+
+</extension>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="attribs" >
+        <fieldset name="custom" label="Joomla TV">
+
+            <field name="video_url"
+                type="url"
+                label="Video Url *"
+                description="Please enter the video url. Only YouTube and Vimeo hosted videos are allowed"
+                /> 
+            
+             <field name="video_id"
+                type="text"
+                label="Video ID"
+                /> 
+            
+            <field name="Speaker"
+                type="text"
+                label="Speaker *"
+                /> 
+                
+            <field name="speaker_twitter"
+                type="text"
+                label="Speaker Twitter Handle"
+                />
+                
+            <field name="session_date"
+                   type="calendar"
+                   label="Recording Date *"
+                   format="%d-%B-%Y"
+                   />
+
+
+        </fieldset>
+    </fields>
+</form>
