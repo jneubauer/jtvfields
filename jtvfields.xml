@@ -20,8 +20,8 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="cincluded_categories" type="category" extension="com_content" default="" label="Included Categories"
-					description="Multiple select the categories that this plugin will work with" multiple="true" size="5" />
+				<field name="thumbs_path" type="text" default="images/thumbs/" label="Thumbnail Image Path"
+					description="file path where theumbnails will be stored." size="5" />
 			</fieldset>
 		</fields>
 	</config>
