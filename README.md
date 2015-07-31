@@ -6,7 +6,7 @@ plugin also does actions to isolate video ID's from submitted video urls, fetch 
 
 #How To Use This Plugin
 
-after installation, there are no parameters to set up.
+After installation you must set the path the save image thumbnails to. Must be relative to Joomla! application (meaning it can't save above the application root, without tweaking the code. Default value for that param is to save to /images/thumbs - this gives content managers the opportunity to manually implement a custom thumb via the media manager if they want, instead of having to use FTP.
 
 ***
 
