@@ -52,7 +52,7 @@ class plgContentJtvfields extends JPlugin {
             $attribs = json_decode($article->attribs);
 
             //Let's check that the video_url field is filled in
-            if(!empty($attribs->video_url)){
+            if(!empty($attribs->tv_video_url)){
 
                 jimport('joomla.filesystem.file');
                 jimport( 'joomla.image.image' );
@@ -64,7 +64,7 @@ class plgContentJtvfields extends JPlugin {
                 //Set the path for the thumbnails
                 $asset_dir = JPath::clean( JPATH_SITE.'/images/thumbs/' );
                 
-                $url_arr = parse_url($attribs->video_url);
+                $url_arr = parse_url($attribs->tv_video_url);
                 if ($url_arr['host']== 'vimeo.com')
                 {
             
@@ -73,23 +73,23 @@ class plgContentJtvfields extends JPlugin {
                     $vim_id = 'v' . $vim_id;
                     $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video$v_id.php"));
                     copy($hash[0]['thumbnail_large'], $asset_dir.$vim_id.'.jpg');
-                    $attribs->video_id = $vim_id;
+                    $attribs->tv_video_id = $vim_id;
                 }
                 if ($url_arr['host'] == 'youtu.be')
                 {
                     $v_id = $url_arr['path'];
                     $v_id = substr($v_id, 1);
                     $yt_id = 'y' . $v_id;
-                    copy("http://i1.ytimg.com/vi/$v_id/0.jpg", $asset_dir.$yt_id.'.jpg');
-                    $attribs->video_id = 'y' . $v_id;
+                    copy("http://i1.ytimg.com/vi/$v_id/mqdefault.jpg", $asset_dir.$yt_id.'.jpg');
+                    $attribs->tv_video_id = 'y' . $v_id;
                 }
                 if ($url_arr['host']== 'www.youtube.com')
                 {
-                    parse_str( parse_url( $attribs->video_url, PHP_URL_QUERY ), $yt_arr );
+                    parse_str( parse_url( $attribs->tv_video_url, PHP_URL_QUERY ), $yt_arr );
                     $v_id = $yt_arr['v'];
-                    $yt_id = 'y' . $v_id;
-                    copy("http://i1.ytimg.com/vi/$v_id/0.jpg", $asset_dir.$yt_id.'.jpg');
-                    $attribs->video_id = $yt_id;
+                    $yt_id = 'y' . $yt_arr['v'];
+                    copy("http://i1.ytimg.com/vi/$v_id/mqdefault.jpg", $asset_dir.$yt_id.'.jpg');
+                    $attribs->tv_video_id = $yt_id;
                 }               
                 
                 //Set the new $attribs object for the article
